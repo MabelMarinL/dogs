@@ -1,0 +1,17 @@
+.contenedor {
+    display:flex;
+    align-items:center;
+    gap: 2rem;
+}
+
+.btn {
+    width: 9rem;
+}
+
+select{
+    width: 11rem;
+    height: 1.8rem;
+    border-radius: 0.5rem;
+    border: 2px solid #98b2a1ae;
+}
+

@@ -1,0 +1,44 @@
+.conteiner{
+    display:block;
+    justify-content: center;
+    position: relative;
+}
+img{
+    display: flex;
+    margin: 0;
+}
+.dog {
+    cursor: pointer;
+}
+
+input{
+    width: 11rem;
+    height: 1.3rem;
+    border-radius: 0.3rem;
+    border: 2px solid #b6beb9ae;
+    margin: 1rem;
+}
+
+.error{
+    display: block;
+    color: red;
+    margin-right: 2rem;
+    /* position: absolute;  */
+    /* margin-right:  */
+    /* top: 100%;  */
+    margin-right:5rem ;
+}
+
+.btn1 {
+    width: 2rem;
+    height: 1.5rem;
+    background-color: rgba(152, 152, 153, 0.89);
+    color: #030303e7;
+    border: 2px solid #878787f1;
+    border-radius: 0.3rem;
+    font-size: 0.8rem;
+    justify-content: center;
+}
+
+
+
