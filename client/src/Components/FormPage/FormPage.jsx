@@ -173,7 +173,7 @@ const FormPage = () => {
                     <input type="img" name="image" value={input.image} onChange={inputOnChange} />
                     {errors.image && <p className={style.error}>{errors.image}</p> }
                 </div>
-
+                    <input type="text" />
                 <button type="submit" className={style.btn2}>create</button>
             </form>
         </div>

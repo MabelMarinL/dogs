@@ -75,19 +75,19 @@ const reducer = (state=initialState, action) => {
                 ...state,
                 characters: 
                 action.payload === "more weight"
-                ? copyCharacters.sort((a,b) => {
+                ? [...state.characters].sort((a,b) => {
                     return b.weight_max - a.weight_max
                 })
-                : copyCharacters.sort((a,b) => {
+                : [...state.characters].sort((a,b) => {
                     return a.weight_min - b.weight_min
                 })
             }
         
-        // case POST_DOG:
-        //     return{
-        //         ...state,
-        //         characters: [...state.characters, action.payload]
-        //     }
+        case POST_DOG:
+            return{
+                ...state,
+                characters: [...state.characters, action.payload]
+            }
             
 
         default:

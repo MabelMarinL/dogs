@@ -98,11 +98,14 @@ export const orderWieght = (order) => {
 };
 
 export const postDog = (infor) => {
+    
     return async(dispatch) => {
         try {
-            console.log(infor,"actionssss");
-            const response = await axios.post(`${URL}/dogs`, infor);
-            return response
+            const {data} = await axios.post(`${URL}/dogs`, infor);
+            dispatch({
+                type: POST_DOG,
+                payload: data
+            })
         
         } catch (error) {
             console.log(error);

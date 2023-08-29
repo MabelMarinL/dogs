@@ -4,14 +4,14 @@ const { Dog, Temperament } = require("../db");
 
 
 const postDog = async(req, res) => {
-    const { name, image, height_max, height_min, weight_max, weight_min,life_span, temperament } = req.body;
+    const { name, image, height_max, height_min, weight_max, weight_min,life_span_max, life_span_min, temperament } = req.body;
 
     try {
-        if(!name, !image, !height_max, !height_min, !weight_max, !weight_min, !life_span, !temperament) {
+        if(!name || !image || !height_max || !height_min || !weight_max || !weight_min ||!life_span_max || !life_span_min || !temperament) {
             return res. status(400).send("faltan datos")
         }
         
-        //*buscar si ya existe dog
+ 
         const apiDogs = [(await axios.get(`${API_URL}?api_key=${API_KEY}`)).data];
         const findDogApi = apiDogs.find(dog => dog.name === name)
 
@@ -26,23 +26,26 @@ const postDog = async(req, res) => {
         const newDog = await Dog.create({
             name,
             image,
-            height_max,
             height_min,
-            weight_max,
+            height_max,
             weight_min,
-            life_span,
+            weight_max,
+            life_span_min,
+            life_span_max, 
         });
-        
+       
         const findTemperament = await Temperament.findAll({
             where: {name:temperament}
         });
+      
+
         await newDog.addTemperaments(findTemperament)
         
-
-        // Obtén los nombres de los temperamentos
+   
         const includeTemp = findTemperament.map(temp => temp.name);
+        console.log(includeTemp, "buscarrr");
 
-        // Agrega la propiedad temperament al objeto JSON
+        
         const allCreateDog = newDog.toJSON();
         allCreateDog.temperament = includeTemp;
 

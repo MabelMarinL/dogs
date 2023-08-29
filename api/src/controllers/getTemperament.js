@@ -6,21 +6,25 @@ const { Temperament } = require("../db");
 const getTemperament = async(req, res) => {
     const { data } = await axios.get(`${API_URL}?api_key=${API_KEY}`);
     const allTemperament = []
+ 
     try {
         data.forEach(({temperament}) => {
-            if(temperament)
-            allTemperament.push(... temperament.split(","))
+            if(temperament){
+            const arrTemp = temperament.split(',').map(item => item.trim());
+                return allTemperament.push(... arrTemp)
+            }
         });
         
         const filterTemp = allTemperament.filter((temp, index) => allTemperament.indexOf(temp) === index)
+        // console.log(filterTemp);
 
 
 
-        const createTempProme = await filterTemp.map((elem) => Temperament.findOrCreate({where:{name:elem}}));
+        await filterTemp.map((elem) => Temperament.findOrCreate({where:{name:elem}}));
        
 
         const createTempPromises = filterTemp.map(async (elem) => {
-            const [temperament, created] = await Temperament.findOrCreate({
+            const [temperament] = await Temperament.findOrCreate({
                 where: { name: elem },
             });
             return temperament; // Solo devolvemos el objeto creado - created es el valor booleano que se crea
