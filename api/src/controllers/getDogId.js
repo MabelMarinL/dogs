@@ -7,14 +7,14 @@ const getDogId = async (req, res) => {
   try {
     const { id } = req.params;
     
-    // API
+    
     const dataApi = (await axios.get(`${API_URL}?api_key=${API_KEY}`)).data;
     const dogApi = await getApi(dataApi)
 
-    // DB
+    
     const dogDB = await Dog.findAll();
 
-    // API y la DB
+   
     const allDogs = dogApi.concat(dogDB.map(dbDog => dbDog.toJSON()));
 
     

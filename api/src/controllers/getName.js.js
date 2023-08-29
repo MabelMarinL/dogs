@@ -1,12 +1,12 @@
 const { Dog, Temperament } = require("../db");
 const axios = require("axios");
 const { API_URL, API_KEY } = process.env;
-const { getApi, formatoDb } = require("./getApi")
+const { getApi } = require("./getApi")
 
 
 const getName = async(req, res) => {
     try {
-        //BD
+        
         let dogDB = await Dog.findAll({
             include: Temperament,
         });
@@ -26,12 +26,12 @@ const getName = async(req, res) => {
         return restoPropiedades;
         });
         
-        //API
+        
         const dataApi = (await axios.get(`${API_URL}?api_key=${API_KEY}`)).data;
         const dogApi = await getApi(dataApi)
 
         
-        // API + BD
+        
         const concatInformation = orderTemperaments.concat(dogApi);
         
 
