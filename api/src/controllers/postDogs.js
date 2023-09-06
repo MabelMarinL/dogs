@@ -5,6 +5,7 @@ const { Dog, Temperament } = require("../db");
 
 const postDog = async(req, res) => {
     const { name, image, height_max, height_min, weight_max, weight_min,life_span_max, life_span_min, temperament } = req.body;
+    // console.log(req.body, "body");
 
     try {
         if(!name || !image || !height_max || !height_min || !weight_max || !weight_min ||!life_span_max || !life_span_min || !temperament) {
@@ -31,7 +32,7 @@ const postDog = async(req, res) => {
             weight_min,
             weight_max,
             life_span_min,
-            life_span_max, 
+            life_span_max,
         });
        
         const findTemperament = await Temperament.findAll({

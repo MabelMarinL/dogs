@@ -1,7 +1,8 @@
-const { Dog } = require("../db");
+const { Dog, Temperament } = require("../db");
 const axios = require("axios");
 const { API_URL, API_KEY } = process.env;
-const { getApi } = require("./getApi")
+const { getApi,getDataBase } = require("./getApi");
+
 
 const getDogId = async (req, res) => {
   try {
@@ -12,12 +13,15 @@ const getDogId = async (req, res) => {
     const dogApi = await getApi(dataApi)
 
     
-    const dogDB = await Dog.findAll();
+    const dataDB = await Dog.findAll({
+      include: Temperament
+    });
 
+    const dogDB = getDataBase(dataDB);
    
-    const allDogs = dogApi.concat(dogDB.map(dbDog => dbDog.toJSON()));
+    console.log(dogDB,"aaaaaaaaa");
+    const allDogs = dogApi.concat(dogDB);
 
-    
     const foundDog = allDogs.find((dog) => {
       return dog.id.toString() === id;
     });

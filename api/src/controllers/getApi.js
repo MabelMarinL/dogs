@@ -17,4 +17,22 @@ module.exports = {
         })
     },
 
+
+    getDataBase (dataBase)  {
+        console.log(dataBase,"dbbbiiiiiiii");
+        return dataBase.map((dog) => {
+            return {
+                id:dog.id,
+                image: dog.image,
+                name: dog.name,
+                height_min: dog.height_min,
+                height_max: dog.height_max,
+                weight_min: dog.weight_min,
+                weight_max: dog.weight_max,
+                life_span_min: dog.life_span_min,
+                life_span_max: dog.life_span_max,
+                temperament: dog.Temperaments.map(elem => elem.name).join(", ")
+            }
+        })
+    }
 }
