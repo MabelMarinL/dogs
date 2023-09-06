@@ -1,10 +1,14 @@
+.contenedor {
+    overflow-x: hidden;
+}
 .navegador {
+    width: auto;
+    height: 5rem;
     background-color:#c2d004ae;
 }
 
 .title {
     margin: 0;
-    /* height: 0; */
     font-family: 'Courier New', Courier, monospace;
     font-size: 3.3rem;
     color: #a7d004;
@@ -12,17 +16,30 @@
     padding-top: 1rem;
 }
 
-.img{
-    display:flex;
-    margin-left: 6rem;
-    font-size: 2rem;
-}
-
 .nav {
     display: flex;
     align-items: center; 
-    justify-content: center
+    justify-content: center;
+    margin: -4.7rem;
+}
+
+
+.img{
+    display: flex;
+    align-items: end;
+    margin-left: 4rem;
+    font-size: 2.3rem;
 }
 .dog{
-    margin: -2rem;
+    cursor: pointer;
+}
+
+
+.allDogs {
+    display:inline-block;
+    justify-content: center;
+    width: 80rem;
+    margin-top: 0;
+    height: 100%;
+    background: url("./fondoDog.png");
 }

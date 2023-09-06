@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { getDetailId, cleanDetail } from "../../redux/actions";
+import style from "./DetailPage.module.css"
 
 
 const DetailPage = () => {
@@ -17,13 +18,15 @@ const DetailPage = () => {
     },[dispatch, id])
 
     return (
-        <div>
-            <h1>{detail.name}</h1>
-            <h4>Height: {detail.height_min} - {detail.height_max}</h4>
-            <h4>Weight: {detail.weight_min} - {detail.weight_max}</h4>
-            <h4>Life span: {detail.life_span_min} - {detail.life_span_max}</h4>
-            <h4>Temperament: {detail.temperament}</h4>
-            <img src={detail.image} alt={detail.name} />
+        <div className={style.contenedor}>
+            <div className={style.subContenedor}>
+                <h1 className={style.CardName}>{detail.name}</h1>
+                <p>Height: {detail.height_min} - {detail.height_max}</p>
+                <p>Weight: {detail.weight_min} - {detail.weight_max}</p>
+                <p>Life span: {detail.life_span_min} - {detail.life_span_max}</p>
+                <p>Temperament: {detail.temperament}</p>
+            </div>
+            <img src={detail.image} alt={detail.name} className={style.image}/>
         </div>
     )
 };

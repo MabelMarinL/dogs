@@ -1,4 +1,4 @@
-import { GET_DOGS,CLEAN_GET_DOGS, SEARCH_NAME, GET_DETAIL, CLEAN_DETAIL, GET_TEMPERAMENTS, FILTER_TEMPERAMENTS, ORDER_NAME, ORDER_WEIGHT, POST_DOG } from "./action-type";
+import { GET_DOGS,CLEAN_GET_DOGS, SEARCH_NAME, GET_DETAIL, CLEAN_DETAIL, GET_TEMPERAMENTS, CLEAN_TEMPERAMENTS, FILTER_TEMPERAMENTS, ORDER_NAME, ORDER_WEIGHT, POST_DOG, CREATE_DOGS_FILTER } from "./action-type";
 import axios from"axios";
 
 
@@ -8,10 +8,10 @@ const URL = "http://localhost:3001";
 export  const getDogs = () => {
     return async(dispatch) => {
         try {
-            const { data } = await axios.get(`${URL}/dogs`);
+            const { data } = await axios(`${URL}/dogs`);
             dispatch({
                 type: GET_DOGS,
-                payload: data
+                payload:data
             })
         } catch (error) {
             console.log(error);
@@ -75,6 +75,13 @@ export const getTemperament = () => {
     }
 };
 
+export const cleanTemperaments = () => {
+    return {
+        type: CLEAN_TEMPERAMENTS,
+
+    }
+}
+
 export const filterTemperaments = (temperament) => {
     return {
         type: FILTER_TEMPERAMENTS,
@@ -111,4 +118,10 @@ export const postDog = (infor) => {
             console.log(error);
         }
     }
+}
+
+export const createDogsFilter = () => {
+    return {
+        type: CREATE_DOGS_FILTER,
+    } 
 }

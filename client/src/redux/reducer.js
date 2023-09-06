@@ -1,14 +1,16 @@
-import { GET_DOGS, CLEAN_GET_DOGS, SEARCH_NAME, GET_DETAIL, CLEAN_DETAIL, GET_TEMPERAMENTS, FILTER_TEMPERAMENTS, ORDER_NAME, ORDER_WEIGHT, POST_DOG } from "./action-type";
+import { GET_DOGS, CLEAN_GET_DOGS, SEARCH_NAME, GET_DETAIL, CLEAN_DETAIL, GET_TEMPERAMENTS, FILTER_TEMPERAMENTS, ORDER_NAME, ORDER_WEIGHT, POST_DOG, CREATE_DOGS_FILTER } from "./action-type";
 
 const initialState = {
     characters: [],
     detail: [],
-    temperaments: [],
-    filter: []
+    temperament: [],
+    filter: [],
+    posteos: [],
 }
 
 const reducer = (state=initialState, action) => {
     let copyCharacters = [...state.filter];
+    const postDog = [...state.posteos]
 
     switch (action.type) {
         case GET_DOGS:
@@ -43,7 +45,7 @@ const reducer = (state=initialState, action) => {
         case GET_TEMPERAMENTS:
             return {
                 ...state,
-                temperaments: action.payload
+                temperament: action.payload
             }
         case FILTER_TEMPERAMENTS:
             const filter = copyCharacters.filter(e => e.temperament?.includes(action.payload))
@@ -86,8 +88,16 @@ const reducer = (state=initialState, action) => {
         case POST_DOG:
             return{
                 ...state,
-                characters: [...state.characters, action.payload]
+                characters: [action.payload, ...state.filter],
+                posteos: action.payload,
             }
+        
+        case CREATE_DOGS_FILTER: 
+
+        return {
+            ...state,
+            characters: postDog
+        }
             
 
         default:

@@ -1,0 +1,38 @@
+.contenedor {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center; 
+    background-color: rgb(215, 218, 218);
+    padding: -1rem;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0  0.3rem; 
+    text-align: center;
+    transform: scale(0.35);
+    height: 1rem;
+    padding: 1.5rem;
+}
+
+.item img {
+    width: 100px; 
+    height: auto; 
+}
+
+.item p {
+    font-size: 2rem;
+}
+
+.descripcion {
+    display:flex;
+    align-items:center;
+    font-size: 0.9rem;
+    margin: 3.2rem 3rem;
+    color: rgb(59, 59, 59);
+}
+
+

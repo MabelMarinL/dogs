@@ -63,12 +63,12 @@ const validation = (input) => {
     };
 
 
-    // if(!/^(https?:\/\/)?\S+\.(jpg|jpeg|png|gif|bmp)$/.test(input.image)) {
-    //     errors.image = "URL invalida";
-    // };
-    // if(!input.image) {
-    //     errors.image = "Colocar la URL de la imagen"
-    // }
+    if(! /^(https?:\/\/)?\S+\.(jpg|jpeg|png|gif|bmp)(\?[\s\S]*)?$/.test(input.image)) { 
+        errors.image = "URL invalida";
+    };
+    if(!input.image) {
+        errors.image = "Colocar la URL de la imagen"
+    }
 
 
 

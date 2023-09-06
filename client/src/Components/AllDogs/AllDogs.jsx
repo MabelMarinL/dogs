@@ -30,7 +30,6 @@ const AllDogs = () => {
 
     return (
         <div className={style.contenedor}>
-            <h2>holi</h2>
             {
                 paginado.map((char) => {
                     return (
@@ -46,10 +45,10 @@ const AllDogs = () => {
                     )
                 })
             }
-            <div>
+            <div className={style.pagination}>
                 <button onClick={firstPage} disabled={page === 0}>{"<<"}</button>
                 <button onClick={prevPage} disabled={page === 0}>{"<"}</button>
-                <p>{page/cardPage +1} de {numberPage}</p>
+                <p> {page/cardPage +1} de {numberPage}</p>
                 <button onClick={nextPage} disabled={numberPage === page/cardPage +1}>{">"}</button>
                 <button onClick={lastPage} disabled={numberPage === page/cardPage +1}>{">>"}</button>
             </div>

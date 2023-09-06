@@ -1,10 +1,10 @@
 .contenedor {
     display: inline-block;
     margin: 1rem;
-    width: 200px; 
+    width: 16rem; 
+    height: 15rem; 
     border: 2px solid #68cc21d0;
     overflow: hidden; /*Para recortar la imagen si es necesario */
-    height: 260px; 
     transition: transform 0.3s ease; 
     border-radius: 22px;
   }
@@ -32,13 +32,17 @@
     border-radius: 10px;
   }
   
-  h4 {
-    font-size: 0.6rem;
-    margin: 0; 
-    padding: 0.35rem; /* Agrega un espacio interno para el contenido */
-    display: flex;
-    justify-content: center;
+  .cardDescripcion {
+    font-size: 0.62rem;
+    display:inline-block;
+    justify-content:center;
+    text-align: justify;
+    margin: -1rem 1.5rem 0;
+    color: rgb(41, 5, 172);
   }
   
+  a:link, a:visited, a:active {
+    text-decoration:none;
+}
 
   

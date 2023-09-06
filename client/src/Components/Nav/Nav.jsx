@@ -1,8 +1,9 @@
-import { getTemperament, filterTemperaments, orderName, orderWieght } from "../../redux/actions";
+import { getTemperament, filterTemperaments, cleanTemperaments, orderName, orderWieght, createDogsFilter } from "../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import style from "./Nav.module.css"
+
 
 const Nav = () => {
     const temperaments = useSelector(state => state.temperaments);
@@ -10,13 +11,15 @@ const Nav = () => {
 
     useEffect(()=> {
         dispatch(getTemperament());
+        return () => {dispatch(cleanTemperaments())};
     },[dispatch]);
 
-
+    
     const handlerTemp = (event) => {
         console.log(event.target.value);
         dispatch(filterTemperaments(event.target.value));
     };
+   
 
     const handlerName = (event) => {
         console.log(event.target.value);
@@ -27,7 +30,6 @@ const Nav = () => {
         console.log(event.target.value);
         dispatch(orderWieght(event.target.value))
     }
-
 
 
     return (
@@ -43,11 +45,12 @@ const Nav = () => {
                         temperaments?.map((element) => {
                             return (
                                 <option value={element.name} key={element.id}>{element.name}</option>
-                            )
-                        })
-                    }
+                                )
+                            })
+                        }
                 </select>
             </div>
+
             <div>
                 <select name="order" defaultValue="order" onChange={handlerName}>
                     <option value="order" disabled>Order breeds</option>

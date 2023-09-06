@@ -1,11 +1,11 @@
 .contenedor {
     display:flex;
     align-items:center;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .btn {
-    width: 9rem;
+    width: 8rem;
 }
 
 select{

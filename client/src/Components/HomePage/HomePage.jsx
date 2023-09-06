@@ -1,10 +1,12 @@
+import style from "./HomePage.module.css";
 import SearchBar from "../SearchBar/SearchBar";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import AllDogs from "../AllDogs/AllDogs";
 import { getDogs, cleanGetDogs } from "../../redux/actions";
 import Nav from "../Nav/Nav";
-import style from "./HomePage.module.css";
+import PiePagina from "../PiePagina/PiePagina";
+
 
 
 
@@ -25,16 +27,20 @@ const HomePage = () => {
     return (
         <div className={style.contenedor}>
             <div className={style.navegador}>
-                <h1 className={style.title}>DOGS</h1>
                 <div className={style.img}>
-                    <h2 className={style.dog} onClick={handleDogEmojiClick}>🐶</h2>
+                    <botton className={style.dog} onClick={handleDogEmojiClick}>🐶</botton>
                 </div>
                 <div className={style.nav}>
                     <SearchBar />
                     <Nav />
                 </div>
             </div>
+            <div className={style.allDogs}>
                 <AllDogs />
+            </div>
+            <footer>
+                <PiePagina />
+            </footer>
         </div>
     )
 }

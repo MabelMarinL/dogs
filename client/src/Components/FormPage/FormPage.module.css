@@ -1,14 +1,57 @@
-.conteiner{
-    display:block;
-    justify-content: center;
-    position: relative;
+/* .contenedor{
+    display:inline-block;
+    background-color: aqua;
+    height: 3rem;
+    margin: 0;
+} */
+.subContenedor{
+    width: 50rem;
+    height: 28rem;
+    margin-top: 5rem;
+    display: inline-block;
+	align-self: center;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+    background-color: rgba(144, 229, 41, 0.858);
 }
+
+.formulario {
+    margin: 1.5rem 2rem 2.5rem;  
+}
+
 img{
     display: flex;
     margin: 0;
 }
 .dog {
     cursor: pointer;
+
+}
+/*  -----  ERRORES  -----  */
+.error, .errorM, .errorName, .errorUrl {
+    display: block;
+    color: red;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+.error{
+    margin:-1.5rem;
+    margin-left:5rem ;
+    position: absolute; 
+    justify-content: center;
+    /* top: 100%;  */
+}
+
+.errorM {
+    margin:-1.4rem;
+    margin-right:-20rem ;
+    align-items:end;
+    /* position: absolute;  */
+}
+
+.errorName, .errorUrl{
+    margin:-1.3rem;
 }
 
 input{
@@ -16,29 +59,56 @@ input{
     height: 1.3rem;
     border-radius: 0.3rem;
     border: 2px solid #b6beb9ae;
-    margin: 1rem;
+    margin: 1.2rem;
 }
 
-.error{
-    display: block;
-    color: red;
-    margin-right: 2rem;
-    /* position: absolute;  */
-    /* margin-right:  */
-    /* top: 100%;  */
-    margin-right:5rem ;
+
+
+.selectTemperament{
+    display: flex;
+    margin-left: 1.5rem;
+    align-items: center;
+    /* position: absolute; */
+}
+
+.descripcionTemp{
+    margin: 1.1rem;
+}
+
+
+.temp {
+    width: 5rem;
+    height: 3.5rem;
+    background-color: rgba(241, 241, 27, 0.674);
+    border-radius: 1rem;
+    margin: 0.5rem;
+}
+
+.subTemp {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 
 .btn1 {
-    width: 2rem;
-    height: 1.5rem;
-    background-color: rgba(152, 152, 153, 0.89);
-    color: #030303e7;
-    border: 2px solid #878787f1;
+    width: 1.5rem;
+    height: 1rem;
+    background-color: rgba(244, 15, 7, 0.372);
+    border-color: rgba(220, 20, 60, 0.007) ;
+    color: #0c0c0ce7;
     border-radius: 0.3rem;
     font-size: 0.8rem;
-    justify-content: center;
 }
 
+.element{
+    margin: 2%;
+    font-size: 0.7rem;
+    font-weight: 500;
+}
 
-
+/*  ---- BOTON CREATE ---- */
+.btn2 {
+    margin-top: 1.5rem;
+    position: absolute;
+}

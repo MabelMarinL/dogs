@@ -38,8 +38,6 @@
 }
 
 
-
-
 button{
   width: 6rem;
   height: 2rem;
@@ -58,6 +56,11 @@ button:hover {
   border: 2px solid #ee8312b2;
 }
 
-.btn{
-  background-color: #61dafb;
+.btn {
+  display:block;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  top: 2rem;
+  left: 10rem;
 }
