@@ -13,7 +13,7 @@
     align-items: center;
     margin: 0  0.3rem; 
     text-align: center;
-    transform: scale(0.35);
+    transform: scale(0.3);
     height: 1rem;
     padding: 1.5rem;
 }
@@ -34,5 +34,3 @@
     margin: 3.2rem 3rem;
     color: rgb(59, 59, 59);
 }
-
-

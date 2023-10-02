@@ -63,4 +63,5 @@ button:hover {
   position: relative;
   top: 2rem;
   left: 10rem;
+  z-index: 1;
 }

@@ -6,7 +6,7 @@ import style from "./Nav.module.css"
 
 
 const Nav = () => {
-    const temperaments = useSelector(state => state.temperaments);
+    const temperaments = useSelector(state => state.temperament);
     const dispatch = useDispatch();
 
     useEffect(()=> {

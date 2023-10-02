@@ -1,4 +1,7 @@
 .contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 2rem;
 }
 
@@ -10,19 +13,3 @@
 
 }
 
-/* .btn{
-    width: 6rem;
-    height: 2rem;
-    border-radius: 0.5rem;
-    background-color:rgba(239, 132, 9, 0.772);
-    cursor: pointer;
-    border: 2px solid #f58104d3;
-    box-shadow: 2px 3px 2px 0 #41473fe7;
-    text-shadow: 1px 1px 1.5px #6a656f;
-    font-weight: 600;
-}
-.btn:hover {
-    color: #f8f9f7e7;
-    background-color:rgba(239, 132, 9, 0.436);
-    border: 2px solid #ee8312b2;
-} */

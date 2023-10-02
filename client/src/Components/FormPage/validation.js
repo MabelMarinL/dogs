@@ -4,75 +4,69 @@ const validation = (input) => {
     
     if(! /^[A-Za-z\s]+$/.test(input.name)) {
         errors.name = "Nombre invalido";
-    };
-    if(input.name.length > 30) {
+    } else if (input.name.length > 30) {
         errors.name = "No puede tener mas de 30 caracteres";
-    };
-    if(!input.name) {
+    } else if(!input.name) {
         errors.name = "Ingrese el nombre";
     };
 
 
     if(!/^\d{1,2}(\.\d{1,2})?$/.test(input.height_min)) {
         errors.height_min = "Medida invalida";
-    };
-    if(!input.height_min) {
+    } else if (!input.height_min) {
         errors.height_min = "Colocar la medida en centimetros";
-    }
-
-    if(!/^\d{1,2}(\.\d{1,2})?$/.test(input.height_max)) {
-        errors.height_max = "Medida invalida";
     };
-    if(!input.height_max) {
+
+    if (!/^\d{1,2}(\.\d{1,2})?$/.test(input.height_max)) {
+        errors.height_max = "Medida invalida";
+    } else if (!input.height_max) {
         errors.height_max = "Colocar la medida en centimetros";
+    } else if ( input.height_max && input.height_max < input.height_min) {
+        errors.height_max = `La altura maxima no puede ser menor ${input.height_min}`;
     };
 
 
     if(!/^\d{1,2}(\.\d{1,2})?$/.test(input.weight_min)) {
         errors.weight_min = "Medida invalida";
-    };
-    if(!input.weight_min) {
+    } else if (!input.weight_min) {
         errors.weight_min = "Colocar el peso en Kg";
-    }
+    };
 
     if(!/^\d{1,2}(\.\d{1,2})?$/.test(input.weight_max)) {
         errors.weight_max = "Medida invalida";
-    };
-    if(!input.weight_max) {
+    } else if (!input.weight_max) {
         errors.weight_max = "Colocar el peso en Kg";
+    } else if (input.weight_max && input.weight_max < input.weight_min) {
+        errors.weight_max = `El peso maximo no puede ser menor que ${input.weight_min}`;
     };
 
 
     if(!/^\d{1,2}(\.\d{1,2})?$/.test(input.life_span_min)) {
         errors.life_span_min = "Valor invalido";
-    };
-    if(!input.life_span_min) {
+    } else if (!input.life_span_min) {
         errors.life_span_min = "Campo obligatorio";
-    }
+    };
 
     if(!/^\d{1,2}(\.\d{1,2})?$/.test(input.life_span_max)) {
         errors.life_span_max = "Valor invalido";
-    };
-    if(!input.life_span_max) {
+    } else if (!input.life_span_max) {
         errors.life_span_max = "Campo obligatorio";
+    } else if (input.life_span_max && input.life_span_max < input.life_span_min) {
+        errors.life_span_max = `La esperanza de vida no puede ser menor que ${input.life_span_min}`;
     };
 
 
-    if(!input.temperaments) {
-        errors.temperaments = "Elegir al menos un temperamento"
-    };
 
-
-    if(! /^(https?:\/\/)?\S+\.(jpg|jpeg|png|gif|bmp)(\?[\s\S]*)?$/.test(input.image)) { 
+    if(!/^(https?|ftp):\/\/[^\s\/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)/.test(input.image)) { 
         errors.image = "URL invalida";
-    };
-    if(!input.image) {
+    } else if (!input.image) {
         errors.image = "Colocar la URL de la imagen"
     }
 
 
-
-
+    if(!input.temperament) {
+        errors.temperament = "Campo obligatorio"
+    }
 
     return errors;
 }

@@ -27,10 +27,8 @@ const HomePage = () => {
     return (
         <div className={style.contenedor}>
             <div className={style.navegador}>
-                <div className={style.img}>
-                    <botton className={style.dog} onClick={handleDogEmojiClick}>🐶</botton>
-                </div>
                 <div className={style.nav}>
+                    <botton className={style.dog} onClick={handleDogEmojiClick}>🐶</botton>
                     <SearchBar />
                     <Nav />
                 </div>

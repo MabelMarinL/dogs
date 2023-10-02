@@ -5,8 +5,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #b2ed44dc;
-    box-shadow: 0 3px 13 px 1px rgb(0 0 0 / 9%);  
+    background-color: #e6e6e5dc;
+    box-shadow: 0 3px 5px 4px rgba(137, 137, 137, 0.685);  
     border-radius: 2rem;
 }
 

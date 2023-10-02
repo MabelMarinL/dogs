@@ -15,7 +15,7 @@ function App() {
       <div className="App">
          {
             location.pathname !== "/" && location.pathname !== "/home" && (
-               <Link to="/home"><button className='btn'>HOME</button></Link>
+               <Link to="/home"><button className='btn'>Back</button></Link>
             )
          }
          <Routes>

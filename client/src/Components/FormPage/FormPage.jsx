@@ -32,15 +32,13 @@ const FormPage = () => {
 
 
     const inputOnChange = (event) => {
-        // console.log(event.target.name);
-        // console.log(event.target.value);
         setInput({
             ...input,
             [event.target.name]: event.target.value
         })
         setErrors(validation({
             ...input,
-            [event.target.value]: event.target.value
+            [event.target.name]: event.target.value
         }))
     };
 
@@ -60,7 +58,6 @@ const FormPage = () => {
     };
 
     const closeTemper = (elem) => {
-        // console.log(elem, "filterrr");
         const filterTemp = input.temperament.filter(temp => temp !== elem);
 
         setInput({
@@ -103,83 +100,81 @@ const FormPage = () => {
 
     return (
         <div className={style.contenedor}>
-            <div className={style.subContenedor}>
-                <form onSubmit={(event) => handleSubmit(event)} className={style.formulario}>
-                    <div style={style.grupo}>
-                        <label htmlFor="name">name: </label>
-                        <input type="text" name="name" value={input.name} onChange={inputOnChange} /> 
-                    </div>
-                        {errors.name && <p className={style.errorName}>*{errors.name}</p>}
+            <form onSubmit={(event) => handleSubmit(event)} className={style.formulario}>
+                <div style={style.grupo}>
+                    <label htmlFor="name">name: </label>
+                    <input type="text" name="name" value={input.name} onChange={inputOnChange} className={style.name} /> 
+                    {errors.name && <p className={style.errorName}>*{errors.name}</p>}
+                </div>
 
 
-                    <div style={style.grupo} >
-                        <label htmlFor="height_min">height min(cm): </label>
-                        <input type="height_min" name="height_min" value={input.height_min} onChange={inputOnChange} />
-                        {errors.height_min && <p className={style.error}>*{errors.height_min}</p> } 
+                <div style={style.grupo} >
+                    <label htmlFor="height_min">height min(cm): </label>
+                    <input type="height_min" name="height_min" value={input.height_min} onChange={inputOnChange} />
+                    {errors.height_min && <p className={style.error}>*{errors.height_min}</p> } 
                         
-                        <label htmlFor="height_max" >height max: </label>
-                        <input type="height_max" name="height_max" value={input.height_max} onChange={inputOnChange} />
-                        {errors.height_max && <p className={style.errorM}>*{errors.height_max}</p> }
-                    </div>
+                    <label htmlFor="height_max" className={style.labelMax}>height max: </label>
+                    <input type="height_max" name="height_max" value={input.height_max} onChange={inputOnChange} />
+                    {errors.height_max && <p className={style.errorM}>*{errors.height_max}</p> }
+                </div>
 
-                    <div>
-                        <label htmlFor="weight_min">weight min(kg): </label>
-                        <input type="weight_min" name="weight_min" value={input.weight_min} onChange={inputOnChange}/>
-                        {errors.weight_min && <p className={style.error}>*{errors.weight_min}</p> }
+                <div>
+                    <label htmlFor="weight_min">weight min(kg): </label>
+                    <input type="weight_min" name="weight_min" value={input.weight_min} onChange={inputOnChange}/>
+                    {errors.weight_min && <p className={style.error}>*{errors.weight_min}</p> }
 
-                        <label htmlFor="weight_max">weight max: </label>
-                        <input type="weight_max" name="weight_max" value={input.weight_max} onChange={inputOnChange} />
-                        {errors.weight_max &&<p className={style.errorM}>*{errors.weight_max}</p> }
-                    </div>
-
-
-                    <div>
-                        <label htmlFor="life_span_min">life span min :</label>
-                        <input type="life_span_min" name="life_span_min" value={input.life_span_min} onChange={inputOnChange} />
-                        {errors.life_span_min && <p className={style.error}>*{errors.life_span_min}</p> }
-
-                        <label htmlFor="life_span_max">life span max: </label>
-                        <input type="life_span_max" name="life_span_max" value={input.life_span_max} onChange={inputOnChange} />
-                        {errors.life_span_max && <p className={style.errorM}>*{errors.life_span_max}</p> }
-                    </div>
+                    <label htmlFor="weight_max" className={style.labelMax}>weight max: </label>
+                    <input type="weight_max" name="weight_max" value={input.weight_max} onChange={inputOnChange} />
+                    {errors.weight_max &&<p className={style.errorM}>*{errors.weight_max}</p> }
+                </div>
 
 
-                    <div className={style.selectTemperament}>
-                        <p className={style.descripcionTemp}>Temperamento :</p>
-                        <select name="temperament" defaultValue="temperament" onChange={tempOnChange}>
-                            <option value="temperament" disabled>select temperaments</option>
-                        {
-                            temp.map(elem => {
-                                return (
-                                    <option key={elem.id} value={elem.name}>{elem.name}</option>
-                                    )
-                                })
-                            }
-                        </select>
-                        {errors.temperament && <p className={style.error}>*{errors.temperament}</p> }
-                        {
-                            input.temperament?.map(elem => {
-                                return (
-                                    <div key={elem} className={style.temp}>
-                                        <div className={style.subTemp}>
-                                            <button onClick={() => closeTemper(elem)} className={style.btn1}>X</button>
-                                            <p className={style.element}>{elem}</p>
-                                        </div>
-                                    </div>
+                <div>
+                    <label htmlFor="life_span_min">life span min :</label>
+                    <input type="life_span_min" name="life_span_min" value={input.life_span_min} onChange={inputOnChange} />
+                    {errors.life_span_min && <p className={style.error}>*{errors.life_span_min}</p> }
+
+                    <label htmlFor="life_span_max" className={style.labelMax}>life span max: </label>
+                    <input type="life_span_max" name="life_span_max" value={input.life_span_max} onChange={inputOnChange} />
+                    {errors.life_span_max && <p className={style.errorM}>*{errors.life_span_max}</p> }
+                </div>
+
+
+                <div className={style.selectTemperament}>
+                    <p className={style.descripcionTemp}>Temperaments :</p>
+                    <select name="temperament" defaultValue="temperament" onChange={tempOnChange}>
+                        <option value="temperament" disabled>select temperaments</option>
+                    {
+                        temp.map(elem => {
+                            return (
+                                <option key={elem.id} value={elem.name}>{elem.name}</option>
                                 )
                             })
-                        }; 
-                    </div>
+                    }
+                    </select>
+                    {errors.temperament == [] && <p className={style.error}>*{errors.temperament}</p> }
+                    {
+                        input.temperament?.map(elem => {
+                            return (
+                                <div key={elem} className={style.temp}>
+                                    <div className={style.subTemp}>
+                                        <button onClick={() => closeTemper(elem)} className={style.btn1}>X</button>
+                                        <p className={style.element}>{elem}</p>
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
 
 
-                    <div>
-                        <label htmlFor="img" placeholder="url image">url</label>
-                        <input type="img" name="image" value={input.image} onChange={inputOnChange} />
-                        {errors.image && <p className={style.errorUrl}>*{errors.image}</p> }
-                    </div>
-                    <button type="submit" className={style.btn2}>create</button>
-                </form>
-            </div>
+                <div>
+                    <label htmlFor="img" placeholder="url image">url</label>
+                    <input type="img" name="image" value={input.image} onChange={inputOnChange} className={style.url} />
+                    {errors.image && <p className={style.errorUrl}>*{errors.image}</p> }
+                </div>
+                <button type="submit" className={style.btn2} disabled={errors.name || errors.height_max || errors.height_min || errors.weight_max || errors.weight_min || errors.life_span_max || errors.life_span_min || errors.image || !input.temperament}>create</button>
+            </form>
         </div>
     )
 }

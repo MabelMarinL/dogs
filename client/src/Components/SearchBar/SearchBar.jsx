@@ -18,7 +18,7 @@ const SearchBar = () => {
 
     return (
         <div className={style.contenedor}>
-            <input type="text" name="name" value={name} onChange={(event)=> nameChange(event)} placeholder="Dog breed name" className={style.input} />
+            <input type="text" name="name" value={name} onChange={(event)=> nameChange(event)} placeholder="Search name..." className={style.input} />
             <button onClick={() => {onClickHandler(); setName("")}} className={style.btn}>Search</button>
         </div>
     )

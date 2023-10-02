@@ -1,114 +1,134 @@
-/* .contenedor{
-    display:inline-block;
-    background-color: aqua;
-    height: 3rem;
-    margin: 0;
-} */
-.subContenedor{
-    width: 50rem;
-    height: 28rem;
-    margin-top: 5rem;
-    display: inline-block;
-	align-self: center;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-    background-color: rgba(144, 229, 41, 0.858);
-}
+.contenedor{
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background: url("./dog2.jpg");
+    background-position: center center;
+    background-repeat:no-repeat;
+    background-size: cover;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+} 
 
 .formulario {
-    margin: 1.5rem 2rem 2.5rem;  
+    width: 45rem;
+    height: 25rem;
+    display: inline-block;
+    align-self: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(247, 248, 245, 0.498);
+    padding: 1.8rem;
+    margin-top: 3.8rem;
 }
 
-img{
-    display: flex;
-    margin: 0;
+.formulario input{
+    margin-left: 1.5rem;
 }
-.dog {
-    cursor: pointer;
 
-}
 /*  -----  ERRORES  -----  */
 .error, .errorM, .errorName, .errorUrl {
-    display: block;
     color: red;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 500;
 }
+.errorName, .errorUrl{
+    margin-top: -1rem;
+    margin-bottom: 0;
+}
+
 .error{
-    margin:-1.5rem;
-    margin-left:5rem ;
     position: absolute; 
     justify-content: center;
-    /* top: 100%;  */
+    margin-top: -1rem;
+    margin-left:14.5rem ;
+    margin-bottom: 0;
 }
 
 .errorM {
-    margin:-1.4rem;
-    margin-right:-20rem ;
+    display:block;
+    margin-top: -1rem;
+    margin-right:-24.5rem ; 
     align-items:end;
-    /* position: absolute;  */
+    margin-bottom: 0;
 }
 
-.errorName, .errorUrl{
-    margin:-1.3rem;
-}
 
 input{
-    width: 11rem;
+    width: 6rem;
     height: 1.3rem;
     border-radius: 0.3rem;
     border: 2px solid #b6beb9ae;
-    margin: 1.2rem;
+    margin: 0.9rem 0rem 1rem;
 }
 
+.labelMax{
+    padding-left: 5rem;
+}
+
+
+.name{
+    width: 12rem;
+}
+.url{
+    width: 20rem;
+}
 
 
 .selectTemperament{
     display: flex;
-    margin-left: 1.5rem;
     align-items: center;
-    /* position: absolute; */
+    margin-left: 5rem;
 }
 
 .descripcionTemp{
     margin: 1.1rem;
+    font-weight: 700;
 }
 
 
 .temp {
-    width: 5rem;
-    height: 3.5rem;
-    background-color: rgba(241, 241, 27, 0.674);
-    border-radius: 1rem;
+    width: fit-content; 
+    height:fit-content;
+    background-color: rgba(255, 134, 5, 0.674);
+    border-radius: 10px;
     margin: 0.5rem;
+    max-width: 100%; 
+    padding: 0.2rem;
 }
 
-.subTemp {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-}
 
 .btn1 {
+    display:inline-block;
     width: 1.5rem;
     height: 1rem;
-    background-color: rgba(244, 15, 7, 0.372);
-    border-color: rgba(220, 20, 60, 0.007) ;
+    border: none;
+    background: none;
     color: #0c0c0ce7;
-    border-radius: 0.3rem;
+    border-radius: 2px;
     font-size: 0.8rem;
+}
+.btn1:hover{
+    color: white;
 }
 
 .element{
     margin: 2%;
     font-size: 0.7rem;
     font-weight: 500;
-}
+} 
 
 /*  ---- BOTON CREATE ---- */
 .btn2 {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     position: absolute;
+}
+label{
+    font-weight: 700;
+    margin: 2rem -0.7rem 4rem;
 }
