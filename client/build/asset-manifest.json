@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.26ae544e.chunk.css",
+    "main.js": "/static/js/main.67069e44.chunk.js",
+    "main.js.map": "/static/js/main.67069e44.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.2532b556.js",
+    "runtime-main.js.map": "/static/js/runtime-main.2532b556.js.map",
+    "static/js/2.3f82d10e.chunk.js": "/static/js/2.3f82d10e.chunk.js",
+    "static/js/2.3f82d10e.chunk.js.map": "/static/js/2.3f82d10e.chunk.js.map",
+    "static/js/3.99a2a166.chunk.js": "/static/js/3.99a2a166.chunk.js",
+    "static/js/3.99a2a166.chunk.js.map": "/static/js/3.99a2a166.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.26ae544e.chunk.css.map": "/static/css/main.26ae544e.chunk.css.map",
+    "static/js/2.3f82d10e.chunk.js.LICENSE.txt": "/static/js/2.3f82d10e.chunk.js.LICENSE.txt",
+    "static/media/HomePage.module.css": "/static/media/dog2.11461f67.png",
+    "static/media/FormPage.module.css": "/static/media/dog2.97cfc790.jpg",
+    "static/media/github.6d4f8d6e.svg": "/static/media/github.6d4f8d6e.svg",
+    "static/media/linkedin.75788502.svg": "/static/media/linkedin.75788502.svg",
+    "static/media/LadingPage.module.css": "/static/media/razas-perros-1.a45a3c1f.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2532b556.js",
+    "static/js/2.3f82d10e.chunk.js",
+    "static/css/main.26ae544e.chunk.css",
+    "static/js/main.67069e44.chunk.js"
+  ]
+}
