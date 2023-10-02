@@ -1,5 +1,6 @@
 const { Dog, Temperament } = require("../db");
 const axios = require("axios");
+require('dotenv').config();
 const { API_URL, API_KEY } = process.env;
 const { getApi } = require("./getApi")
 
@@ -10,7 +11,7 @@ const getName = async(req, res) => {
         let dogDB = await Dog.findAll({
             include: Temperament,
         });
-        console.log(dogDB, "viene dbb");
+        // console.log(dogDB, "viene dbb");
         
         dogDB = JSON.parse(JSON.stringify(dogDB));
         
