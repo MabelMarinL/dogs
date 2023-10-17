@@ -2,7 +2,7 @@ import { GET_DOGS,CLEAN_GET_DOGS, SEARCH_NAME, GET_DETAIL, CLEAN_DETAIL, GET_TEM
 import axios from"axios";
 
 
-const URL = "http://localhost:3001";
+const URL = "https://dogs-production-2e84.up.railway.app/";
 
 
 export  const getDogs = () => {
