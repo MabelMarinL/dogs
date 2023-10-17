@@ -1,6 +1,6 @@
+require('dotenv').config();
 const axios = require("axios");
 const { API_URL, API_KEY } = process.env;
-require('dotenv').config();
 const { Temperament } = require("../db");
 
 
