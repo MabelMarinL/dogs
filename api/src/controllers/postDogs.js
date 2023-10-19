@@ -6,14 +6,14 @@ const { Dog, Temperament } = require("../db");
 
 const postDog = async(req, res) => {
     const { name, image, height_max, height_min, weight_max, weight_min,life_span_max, life_span_min, temperament } = req.body;
-    // console.log(req.body, "body");
+    
 
     try {
         if(!name || !image || !height_max || !height_min || !weight_max || !weight_min ||!life_span_max || !life_span_min || !temperament) {
             return res. status(400).send("faltan datos")
         }
         
- 
+        
         const apiDogs = [(await axios.get(`${API_URL}?api_key=${API_KEY}`)).data];
         const findDogApi = apiDogs.find(dog => dog.name === name)
 
@@ -45,7 +45,6 @@ const postDog = async(req, res) => {
         
    
         const includeTemp = findTemperament.map(temp => temp.name);
-        console.log(includeTemp, "buscarrr");
 
         
         const allCreateDog = newDog.toJSON();

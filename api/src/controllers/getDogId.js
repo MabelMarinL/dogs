@@ -20,7 +20,7 @@ const getDogId = async (req, res) => {
 
     const dogDB = getDataBase(dataDB);
    
-    console.log(dogDB,"aaaaaaaaa");
+    
     const allDogs = dogApi.concat(dogDB);
 
     const foundDog = allDogs.find((dog) => {

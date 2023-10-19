@@ -1,42 +1,34 @@
+require('dotenv').config();
 const { Dog, Temperament } = require("../db");
 const axios = require("axios");
-require('dotenv').config();
 const { API_URL, API_KEY } = process.env;
-const { getApi } = require("./getApi")
+const { getApi, getDataBase } = require("./getApi")
 
 
 const getName = async(req, res) => {
     try {
-        
+        // DB
         let dogDB = await Dog.findAll({
-            include: Temperament,
+            
+            include: {
+                model: Temperament,
+                attributes: ["name"],
+                through: {                    
+                    attributes: [],   
+                },
+            },
         });
-        // console.log(dogDB, "viene dbb");
+        const newDogDB = await getDataBase(dogDB)
         
-        dogDB = JSON.parse(JSON.stringify(dogDB));
-        
-        
-        dogDB = dogDB.map(dog => {
-        dog.temperament = dog.Temperaments.map(g => g.name);
-        return dog;
-        })
-   
-
-        const orderTemperaments = dogDB.map(elem => {
-        const { Temperaments, ...restoPropiedades } = elem;
-        return restoPropiedades;
-        });
-        
-        
+        // API
         const dataApi = (await axios.get(`${API_URL}?api_key=${API_KEY}`)).data;
         const dogApi = await getApi(dataApi)
 
         
-        
-        const concatInformation = orderTemperaments.concat(dogApi);
+        const concatInformation =newDogDB.concat(dogApi);
         
 
-        //* NAME
+        //**  NAME
         const { name } = req.query;
         if (name) {
             const searchDog = concatInformation.filter((dog) =>

@@ -19,7 +19,6 @@ module.exports = {
 
 
     getDataBase (dataBase)  {
-        console.log(dataBase,"dbbbiiiiiiii");
         return dataBase.map((dog) => {
             return {
                 id:dog.id,
@@ -31,7 +30,7 @@ module.exports = {
                 weight_max: dog.weight_max,
                 life_span_min: dog.life_span_min,
                 life_span_max: dog.life_span_max,
-                temperament: dog.Temperaments.map(elem => elem.name).join(", ")
+                temperament: dog.Temperaments.map(elem => elem.name).join(', ')
             }
         })
     }
