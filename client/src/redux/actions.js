@@ -1,4 +1,4 @@
-import { GET_DOGS,CLEAN_GET_DOGS, SEARCH_NAME, GET_DETAIL, CLEAN_DETAIL, GET_TEMPERAMENTS, CLEAN_TEMPERAMENTS, FILTER_TEMPERAMENTS, ORDER_NAME, ORDER_WEIGHT, POST_DOG, CREATE_DOGS_FILTER } from "./action-type";
+import { GET_DOGS,CLEAN_GET_DOGS, SEARCH_NAME, GET_DETAIL, CLEAN_DETAIL, GET_TEMPERAMENTS, CLEAN_TEMPERAMENTS, FILTER_TEMPERAMENTS, ORDER_NAME, ORDER_WEIGHT, POST_DOG } from "./action-type";
 import axios from"axios";
 
 
@@ -118,10 +118,4 @@ export const postDog = (infor) => {
             console.log(error);
         }
     }
-}
-
-export const createDogsFilter = () => {
-    return {
-        type: CREATE_DOGS_FILTER,
-    } 
 }

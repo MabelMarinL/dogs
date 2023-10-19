@@ -4,13 +4,13 @@
     width: 16rem; 
     height: 15rem; 
     border: 2px solid #858585;
-    overflow: hidden; /*Para recortar la imagen  */
+    overflow: hidden; 
     transition: transform 0.3s ease; 
     border-radius: 22px;
   }
   
   .contenedor:hover {
-    transform: scale(1.07); /* Aumentar tamaño */
+    transform: scale(1.07); 
     border: 2px solid #033bf6d5;
   }
   

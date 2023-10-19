@@ -28,7 +28,7 @@ const HomePage = () => {
         <div className={style.contenedor}>
             <div className={style.navegador}>
                 <div className={style.nav}>
-                    <botton className={style.dog} onClick={handleDogEmojiClick}>🐶</botton>
+                    <p className={style.dog} onClick={handleDogEmojiClick}>🐶</p>
                     <SearchBar />
                     <Nav />
                 </div>

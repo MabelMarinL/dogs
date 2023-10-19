@@ -32,12 +32,12 @@
 }
 
 /*  -----  ERRORES  -----  */
-.error, .errorM, .errorName, .errorUrl {
+.error, .errorM, .errorName, .errorUrl, .errorTem{
     color: red;
     font-size: 0.75rem;
     font-weight: 500;
 }
-.errorName, .errorUrl{
+.errorName, .errorUrl {
     margin-top: -1rem;
     margin-bottom: 0;
 }
@@ -58,6 +58,12 @@
     margin-bottom: 0;
 }
 
+.errorTem {
+    display: block;
+    position: absolute;
+    margin-top: 3.2rem;
+    margin-left: 10rem;
+}
 
 input{
     width: 6rem;

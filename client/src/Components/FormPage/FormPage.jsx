@@ -1,4 +1,5 @@
-import { getTemperament, postDog } from "../../redux/actions";
+import { getTemperament, postDog, cleanTemperaments } from "../../redux/actions";
+import Swal from "sweetalert2"
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import validation from "./validation";
@@ -22,11 +23,12 @@ const FormPage = () => {
         temperament: [],
         image:"",
     });
-
+    
     const [ errors, setErrors ] = useState({});
 
     useEffect (() => {
         dispatch(getTemperament())
+        return () => {dispatch(cleanTemperaments())};
     },[dispatch])
 
 
@@ -42,7 +44,7 @@ const FormPage = () => {
         }))
     };
 
-
+   
     const tempOnChange = (event) => {
         console.log(event.target.value);
         if(input.temperament.includes(event.target.value)) {
@@ -57,6 +59,7 @@ const FormPage = () => {
         };
     };
 
+
     const closeTemper = (elem) => {
         const filterTemp = input.temperament.filter(temp => temp !== elem);
 
@@ -66,6 +69,7 @@ const FormPage = () => {
         })
     };
     
+
     const handleSubmit = (event) => {
         event.preventDefault();
         if(
@@ -78,25 +82,35 @@ const FormPage = () => {
             !input.life_span_max ||
             !input.temperament ||
             !input.image
-            ) {
-                return alert("faltan llenar los campos son obligatorios")
-            }
-            dispatch(postDog(input));
-            alert("perro creado")
-            setInput({
-                name:"",
-                height_min: "",
-                height_max: "",
-                weight_min: "",
-                weight_max: "",
-                life_span_min: "",
-                life_span_max: "",
-                temperament: [],
-                image:"",
+        ){
+            return Swal.fire({
+                title: 'Error!',
+                text: 'Todos los campos son obligatorios!',
+                icon: 'error'
             })
         }
-      
+
+        dispatch(postDog(input));
+            Swal.fire({
+                title: 'Buen trabajo!',
+                text: 'El formulario se ha llenado de forma correcta!',
+                icon: 'success'
+            })
+        setInput({
+            name:"",
+            height_min: "",
+            height_max: "",
+            weight_min: "",
+            weight_max: "",
+            life_span_min: "",
+            life_span_max: "",
+            temperament: [],
+            image:"",
+        })
+    }
+          
         
+
 
     return (
         <div className={style.contenedor}>
@@ -143,7 +157,7 @@ const FormPage = () => {
                 <div className={style.selectTemperament}>
                     <p className={style.descripcionTemp}>Temperaments :</p>
                     <select name="temperament" defaultValue="temperament" onChange={tempOnChange}>
-                        <option value="temperament" disabled>select temperaments</option>
+                        <option value="temperament" disabled>select temperaments</option >
                     {
                         temp.map(elem => {
                             return (
@@ -152,7 +166,7 @@ const FormPage = () => {
                             })
                     }
                     </select>
-                    {errors.temperament == [] && <p className={style.error}>*{errors.temperament}</p> }
+                    {input.temperament.length === 0 && <p className={style.errorTem}>{errors.temperament}</p> }
                     {
                         input.temperament?.map(elem => {
                             return (
@@ -173,7 +187,14 @@ const FormPage = () => {
                     <input type="img" name="image" value={input.image} onChange={inputOnChange} className={style.url} />
                     {errors.image && <p className={style.errorUrl}>*{errors.image}</p> }
                 </div>
-                <button type="submit" className={style.btn2} disabled={errors.name || errors.height_max || errors.height_min || errors.weight_max || errors.weight_min || errors.life_span_max || errors.life_span_min || errors.image || !input.temperament}>create</button>
+                
+                <button 
+                    type="submit" 
+                    className={style.btn2} 
+                    disabled ={errors.name || errors.height_max || errors.height_min || errors.weight_max || errors.weight_min || errors.life_span_max || errors.life_span_min || errors.image || !input.temperament.length}  
+                    >
+                    create
+                </button>
             </form>
         </div>
     )

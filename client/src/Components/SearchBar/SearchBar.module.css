@@ -1,15 +1,29 @@
 .contenedor {
-    display: flex;
+    display:flex;
     justify-content: center;
     align-items: center;
-    margin: 2rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 60px;
+    backdrop-filter: blur(4px) saturacion(180%);
+    border: 2px solid rgb(107, 107, 118);
+    width: 15rem;
+    height: 2.5rem;
 }
 
-.input{
-    width: 10rem;
-    height: 1.5rem;
-    border-radius: 0.7rem;
-    border: 2px solid #98b2a1ae;
+.contenedor input{
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 0px 25px 0px 15px;
+    color: black;
+    font-weight: 700;
+}
 
+
+.contenedor img {
+    margin: 0;
+    height: 1rem;
+    padding: 1rem 0rem 1rem 1.2rem;
 }
 

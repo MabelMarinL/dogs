@@ -1,4 +1,4 @@
-import { getTemperament, filterTemperaments, cleanTemperaments, orderName, orderWieght, createDogsFilter } from "../../redux/actions";
+import { getTemperament, filterTemperaments, cleanTemperaments, orderName, orderWieght } from "../../redux/actions";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -35,9 +35,6 @@ const Nav = () => {
     return (
         <div className={style.contenedor}>
             <div>
-                <Link to={"/dogs"}><button className={style.btn}>Create Dog</button></Link>
-            </div>
-            <div>
                 <select defaultValue="temperaments" onChange={handlerTemp}>
                     <option value="temperaments" disabled>Select temperament</option>
                     <option value="All">All</option>
@@ -64,6 +61,11 @@ const Nav = () => {
                     <option value="more weight">➕ weight</option>
                     <option value="less weight">➖ weight</option>
                 </select>
+            </div>
+
+            
+            <div>
+                <Link to={"/dogs"}><button className={style.btn}>Create Dog</button></Link>
             </div>
         </div>
     )
