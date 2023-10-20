@@ -10,8 +10,7 @@ const AllDogs = () => {
     const [ page, setPage ] = useState(0);
     const cardPage = 8;
     const numberPage = Math.ceil(characters.length/cardPage);
-    console.log(numberPage);
-    console.log(characters.length);
+    
 
     const firstPage = () => {
         setPage(0);
